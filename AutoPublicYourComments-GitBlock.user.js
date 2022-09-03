@@ -17,7 +17,7 @@
 (function () {
     'use strict';
     if (localStorage.getItem('AutoLevel') === null) {
-        localStorage.setItem('AutoLevel', 'H');
+        localStorage.setItem('AutoLevel', 'F');
     }
     if (localStorage.getItem('AutoLevel') === 'H') {
         let GKButton = document.createElement("div");
