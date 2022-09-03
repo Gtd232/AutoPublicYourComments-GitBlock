@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         焯级无敌半自动公开评论神器
+// @name         焯级无敌可调全/半自动公开评论神器
 // @namespace    AXOLOTL.TFGS
 // @version      114514
-// @description  唔唔唔美西螈力量帮你半自动公开评论！
+// @description  唔唔唔美西螈力量帮你全/半自动公开评论！
 // @author       Waterblock79+Gtd232
 // @match        http://gitblock.cn/*
 // @match        https://gitblock.cn/*
