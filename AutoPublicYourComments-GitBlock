@@ -1,0 +1,26 @@
+// ==UserScript==
+// @name         焯级无敌半自动公开评论神器
+// @namespace    AXOLOTL.TFGS
+// @version      114514
+// @description  唔唔唔美西螈力量帮你半自动公开评论！
+// @author       Waterblock+Gtd232
+// @match        http://gitblock.cn/*
+// @match        https://gitblock.cn/*
+// @match        http://aerfaying.com/*
+// @match        https://aerfaying.com/*
+// @match        http://3eworld.cn/*
+// @match        https://3eworld.cn/*
+// @icon         https://cdn.gitblock.cn/Media?name=11E4D54652FE811D8AE24371393C95C2.svg
+// @grant        none
+// ==/UserScript==
+
+(function () {
+    'use strict';
+    let GKButton = document.createElement("div");
+    GKButton.id = "GKButton";
+    GKButton.class = "comment-panel_load-more_18oUL";
+    GKButton.style = "position: fixed;right: 10%;top: 10%;";
+    GKButton.innerHTML = "<a class=\"btn btn-primary btn\" onclick=\"document.querySelectorAll('.comment_handleBtn_hP56Y>*').forEach( item => {if(item.innerHTML == '公开'){item.click();}} )\">公开可见且有权公开的评论</a>";
+    GKButton.onclick = "document.querySelectorAll('.comment_handleBtn_hP56Y>*').forEach( item => {if(item.innerHTML == '公开'){item.click();}} )";
+    document.body.appendChild(GKButton);
+})();
