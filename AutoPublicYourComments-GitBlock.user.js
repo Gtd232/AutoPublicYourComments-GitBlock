@@ -24,11 +24,20 @@
         GKButton.id = "GKButton";
         GKButton.class = "comment-panel_load-more_18oUL";
         GKButton.style = "position: fixed;right: 10%;top: 10%;";
-        GKButton.innerHTML = "<a class=\"btn btn-primary btn\" onclick=\"document.querySelectorAll('.comment_handleBtn_hP56Y>*').forEach( item => {if(item.innerHTML == '公开'){item.click();}} )\">公开可见且有权公开的评论</a>";
+        GKButton.innerHTML = "<a class=\"btn btn-primary btn\" onclick=\"document.querySelectorAll('.comment_comment_P_hgY[id] .comment_handleBtn_hP56Y > span').forEach(item => {if (getElementParents(item).find(item => item.classList.contains('markdown_body_1wo0f'))) return;if (item.innerHTML == '公开' && Blockey.Utils.getContext().targetType != 'ForumPost'{item.click();}\">公开可见且有权公开的评论</a>";
         GKButton.onclick = "document.querySelectorAll('.comment_handleBtn_hP56Y>*').forEach( item => {if(item.innerHTML == '公开'){item.click();}} )";
         document.body.appendChild(GKButton);
     } else {
-        setInterval("document.querySelectorAll('.comment_handleBtn_hP56Y>*').forEach( item => {if(item.innerHTML == '公开'){item.click();}} )", "500"); 
+        setInterval(() => {
+        document.querySelectorAll('.comment_comment_P_hgY[id] .comment_handleBtn_hP56Y > span').forEach(item => {
+            // 防止有人在个人简介等地方伪装公开按钮，导致未经允许的情况下打开未知链接
+            if (getElementParents(item).find(item => item.classList.contains('markdown_body_1wo0f'))) return;
+            // 判断是否匹配并点击
+            if (item.innerHTML == '公开' && Blockey.Utils.getContext().targetType != 'ForumPost') {
+                item.click();
+            }
+        });
+    }, 1000)
     }
     if (window.location.href.substring(window.location.href.length - 2) === 'SS') {
         let settingDiv = document.createElement("div");
